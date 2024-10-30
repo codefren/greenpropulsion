@@ -1,0 +1,672 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AXD2 2020sl</title>
+  <style>
+      /* Estilos generales */
+    body {
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+
+    /* Estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Encabezado */
+    .header {
+      background-color: #000;
+      color: #fff;
+      padding: 1rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header .logo {
+      font-size: 1.5rem;
+    }
+
+    .header .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .header .cta-btn {
+      background-color: #ff6600;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    /* Sección de Héroe */
+    .hero {
+      /* background: url('https://www.newegg.com/insider/wp-content/uploads/2020/09/newegg-tech-pc-hardware-wallpaper-9-scaled.jpg') no-repeat center center/cover; */
+      color: #111;
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .hero .cta-btn {
+      background-color: #ff6600;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+
+    /* Productos Destacados */
+    .productos {
+      padding: 3rem 0;
+    }
+
+    .productos h3 {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .productos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .producto img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .producto h4 {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .producto p {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      color: #666;
+    }
+
+    .producto .btn {
+      background-color: #ff6600;
+      color: #fff;
+      padding: 0.5rem;
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 0.5rem;
+    }
+
+    /* Beneficios */
+    .beneficios {
+      background-color: #f4f4f4;
+      padding: 3rem 0;
+    }
+
+    .beneficios h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .beneficio img {
+      width: 50px;
+      margin-bottom: 0.5rem;
+    }
+
+    .beneficio h4 {
+      margin-top: 1rem;
+    }
+
+    /* Testimonios */
+    .testimonios {
+      padding: 3rem 0;
+    }
+
+    .testimonios h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .testimonios p {
+      font-style: italic;
+    }
+
+    /* Sección de Marcas */
+    .marcas {
+      padding: 3rem 0;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    .marcas h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .marcas p {
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      color: #666;
+    }
+
+    .marcas-grid {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .marca {
+      flex: 1;
+      max-width: 150px;
+      text-align: center;
+    }
+
+    .marca img {
+      width: 100%;
+      height: auto;
+      max-width: 80px;
+      margin-bottom: 0.5rem;
+    }
+
+    .marca h4 {
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    /* Pie de Página */
+    .footer {
+      background-color: #000;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    .footer .social-icons a {
+      color: #ff6600;
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+
+    .bienvenida {
+  padding: 3rem 0;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.bienvenida-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem; /* Espacio entre la imagen y el texto */
+}
+
+.bienvenida-img {
+  width: 100%;
+  max-width: 400px; /* Ajusta el tamaño máximo de la imagen */
+  border-radius: 8px;
+}
+
+.bienvenida-text {
+  max-width: 600px; /* Ancho máximo para el texto */
+}
+
+.bienvenida h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.bienvenida p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+    /* Estilos para el carrusel */
+    .carousel-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-image {
+      width: 100%;
+      flex-shrink: 0;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    /* Botones de navegación */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 1rem;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: rgba(0, 0, 0, 0.5);
+      transform: translateY(-50%);
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .dots-container {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .active {
+      background-color: #717171;
+    }
+
+    /* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos de la barra de navegación */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #333; /* Color de fondo de la barra */
+}
+
+/* Contenedor del logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Imagen del logo */
+.logo {
+    max-width: 150px; /* Tamaño máximo del logo */
+    height: auto;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .logo {
+        max-width: 120px; /* Reducir el tamaño en pantallas pequeñas */
+    }
+}
+
+.contacto {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* Fondo gris claro */
+    color: #333; /* Texto en gris oscuro */
+  }
+
+  .contacto {
+    height: 50vh; /* Altura completa de la ventana */
+    width: 100%; /* Ancho completo */
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Colocar elementos en columna */
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco del formulario */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  }
+
+  h3 {
+    margin-bottom: 20px; /* Espacio debajo del título */
+    color: #333; /* Color del título */
+  }
+
+  .contact-form {
+    display: flex; /* Usar flexbox para disposición en columna */
+    flex-direction: column; /* Colocar todos los campos en una sola columna */
+    max-width: 400px; /* Ancho máximo del formulario */
+    width: 100%; /* Ancho completo */
+    gap: 15px; /* Espacio entre los campos */
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column; /* Apilar etiquetas y campos */
+  }
+
+  label {
+    margin-bottom: 5px; /* Espacio debajo de las etiquetas */
+    font-weight: bold; /* Negrita para las etiquetas */
+    color: #333; /* Color de las etiquetas */
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    padding: 10px;
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: border-color 0.3s; /* Transición suave al enfocar */
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    border-color: #007bff; /* Color de borde al enfocar */
+    outline: none; /* Quitar el contorno */
+  }
+
+  .form-group-full {
+    text-align: center; /* Centrar el botón */
+  }
+
+  button {
+    padding: 10px 15px;
+    background-color: #333; /* Fondo negro del botón */
+    color: white; /* Texto en blanco */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave al pasar el cursor */
+  }
+
+  button:hover {
+    background-color: #555; /* Color de fondo más claro al pasar el cursor */
+  }
+  </style>
+</head>
+<body>
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="logo-container">
+        <img src="https://i.ibb.co/b3mtcpB/axd2-2020sl-high-resolution-logo-grayscale.png" alt="Logo de la compañía" class="logo">
+    </div>
+  </header>
+
+
+  <!-- Sección de Bienvenida -->
+  <section class="hero">
+    <div class="bienvenida-content">
+      <img src="https://i.ibb.co/fx3n2by/axd2-2020sl-high-resolution-logo-transparent.png" alt="Imagen de bienvenida" class="bienvenida-img">
+      <div class="bienvenida-text">
+        <h2>Bienvenido a Nuestra Tienda de Electrónicos</h2>
+        <p>Encuentra lo mejor en tecnología y productos electrónicos para mejorar tu vida.</p>
+        <a href="#productos" class="cta-btn">Ver Productos</a>
+      </div>
+    </div>
+  </section>
+
+    <!-- Beneficios -->
+    <section class="marcas" id="marcas">
+        <div class="container">
+          <h3>Marcas Top del Mercado</h3>
+          <p>Trabajamos con los líderes en tecnología informática para ofrecerte solo lo mejor.</p>
+          <div class="marcas-grid">
+            <div class="marca">
+              <img src="https://lirp.cdn-website.com/42470e76/dms3rep/multi/opt/2560px-Nvidia_logo.svg-458w.png" alt="Nvidia">
+              <h4>Nvidia</h4>
+            </div>
+            <div class="marca">
+              <img src="https://lirp.cdn-website.com/42470e76/dms3rep/multi/opt/Intel-logo-2022-458w.png" alt="Intel">
+              <h4>Intel</h4>
+            </div>
+            <div class="marca">
+              <img src="https://lirp.cdn-website.com/42470e76/dms3rep/multi/opt/1678077-ryzen-radeon-graphics-1260x709-458w.png" alt="AMD">
+              <h4>AMD</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+  <!-- Productos Destacados -->
+  <section id="productos" class="productos">
+    <div class="container">
+      <h2>Productos Destacados</h2>
+      <br/>
+      <div class="productos-grid">
+        <div class="producto">
+          <img src="https://i.ibb.co/yn5PpLt/tablet.jpg" alt="tablet" border="0" />
+          <h4>CyberpowerPC Gamer Master Gaming PC, AMD Ryzen 5 7600 3.8GHz, GeForce RTX 4060 8GB, 16GB DDR5, 500GB NVMe SSD, listo para Wi-Fi y Windows 11 Home (GMA2700A) </h4>
+          <p>$1450</p>
+          <a href="#" class="btn">Comprar Ahora</a>
+        </div>
+        <div class="producto">
+          <img src="https://i.ibb.co/ZJ0GfjG/laptop.jpg" alt="Tablet">
+          <h4>Lenovo Legion 5 Gaming Laptop, pantalla FHD de 15.6 pulgadas, AMD Ryzen 7 5800H, 16 GB de RAM, almacenamiento SSD de 512 GB, NVIDIA GeForce RTX 3050Ti, Windows 10H, color azul Phantom </h4>
+          <p>$1200</p>
+          <a href="#" class="btn">Comprar Ahora</a>
+        </div>
+        <div class="producto">
+          <img src="https://i.ibb.co/GVd7w1C/smartphone.jpg" alt="Smartphone">
+          <h4>ASUS Tarjeta gráfica para juegos ROG Strix GeForce RTX 4080 Super OC Edition (PCIe 4.0, 16GB GDDR6X, DLSS 3, HDMI 2.1a, DP 1.4a, cámara de vapor, exoesqueleto de metal, detección de potencia</h4>
+          <p>$1630</p>
+          <a href="#" class="btn">Comprar Ahora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- Sección de Contacto -->
+<section class="contacto" id="contacto">
+    <h3>Contáctanos</h3>
+    <form action="enviar_correo.php" method="POST" class="contact-form">
+
+      <div class="form-group">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="asunto">Asunto:</label>
+        <input type="text" id="asunto" name="asunto" required>
+      </div>
+      <div class="form-group">
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+      </div>
+      <div class="form-group-full">
+        <button type="submit" class="btn">Enviar</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonios" class="testimonios">
+    <div class="container">
+      <h3>Lo que nuestros clientes dicen</h3>
+      <div class="testimonios-grid">
+        <div class="testimonio">
+          <p>“Excelente servicio y productos de calidad. Recibí mi laptop en tiempo récord.”</p>
+          <span>- Juan Pérez</span>
+        </div>
+        <div class="testimonio">
+          <p>“Los precios son insuperables. Recomiendo esta tienda sin dudar.”</p>
+          <span>- María López</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Beneficios -->
+    <section id="beneficios" class="beneficios">
+        <div class="container">
+          <h3>¿Por qué elegirnos?</h3>
+          <div class="beneficios-grid">
+            <div class="beneficio">
+              <a href="https://ibb.co/Gxp9CC8"><img src="https://i.ibb.co/RvbNQQs/control-de-calidad.png" alt="control-de-calidad" border="0" /></a>
+              <h4>Calidad Superior</h4>
+              <p>Ofrecemos solo productos de primeras marcas.</p>
+            </div>
+            <div class="beneficio">
+              <a href="https://imgbb.com/"><img src="https://i.ibb.co/2qsXjVs/envio-nacional.png" alt="envio-nacional" border="0" /></a>
+              <h4>Envío Nacional</h4>
+              <p>Distribuimos a todos los rincones del país de 48hrs a 72hrs.</p>
+            </div>
+            <div class="beneficio">
+              <a href="https://ibb.co/725FF4c"><img src="https://i.ibb.co/gzpCCV1/icon-servicio.png" alt="icon-servicio" border="0" /></a>
+              <h4>Servicio Técnico</h4>
+              <p>Asesoramiento especializado para el mejor rendimiento.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+  <!-- Pie de Página -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Axd2 2020sl. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script>
+    let slideIndex = 0;
+    showSlide(slideIndex);
+
+    // Mover al siguiente o anterior slide
+    function moveSlide(n) {
+      showSlide(slideIndex += n);
+    }
+
+    // Mostrar el slide actual
+    function currentSlide(n) {
+      showSlide(slideIndex = n - 1);
+    }
+
+    function showSlide(n) {
+      let slides = document.querySelectorAll('.carousel-image');
+      let dots = document.querySelectorAll('.dot');
+      
+      // Si el índice de slides es mayor que el número de slides, vuelve al inicio
+      if (n >= slides.length) slideIndex = 0;
+      if (n < 0) slideIndex = slides.length - 1;
+      
+      // Esconder todas las imágenes
+      slides.forEach(slide => slide.style.display = "none");
+
+      // Remover la clase 'active' de todos los dots
+      dots.forEach(dot => dot.classList.remove('active'));
+
+      // Mostrar el slide actual y añadir la clase 'active' al dot actual
+      slides[slideIndex].style.display = "block";
+      dots[slideIndex].classList.add('active');
+    }
+
+    // Automáticamente cambia de imagen cada 5 segundos
+    setInterval(() => moveSlide(1), 5000);
+  </script>
+</body>
+</html>
